@@ -27,6 +27,11 @@ api = tweepy.API(auth)
 myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
 
-myStream.filter(track=['monterrey, CDMX, ciudad de mexico, guadalajara'])
+
+#myStream.filter(track=['#FelipeNeto35Milhoes','#GHVIPLimite10','#LeadersDebate','#DiaInternacionalDelHombre'])
+#myStream.filter(track=['trump','amlo','limonada','mexico','impeachment','tigres','rayados','ios','android'])
+#myStream.filter(track=['monterrey, CDMX, ciudad de mexico, guadalajara'])
+#myStream.filter(track=['hong kong'])
+#myStream.filter(locations=[las coordenadas van aqui])
 
 
