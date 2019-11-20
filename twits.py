@@ -1,12 +1,14 @@
 import tweepy
+import mongoDB as db
 import simplejson as json
 
 #override tweepy.StreamListener to add logic to on_status
 class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, data):
-        print("usuario",data._json['user']['name'])
-        print("contenido: ",data._json['text'])
+        #print(data.text)
+        db.insertaColeccion(data._json)
+
 
     def on_error(self, status_code):
         if status_code == 420:
@@ -25,7 +27,6 @@ api = tweepy.API(auth)
 myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
 
-myStream.filter(track=["mexico"])
-
+myStream.filter(track=['monterrey, CDMX, ciudad de mexico, guadalajara'])
 
 
